@@ -8,12 +8,12 @@ function HomePage() {
       <nav>
         <ul className={styles.nav}>
           <li>
-            <Link to="/study" className={styles.link}>
+            <Link to="/select/study" className={styles.link}>
               Study Mode
             </Link>
           </li>
           <li>
-            <Link to="/quiz" className={styles.link}>
+            <Link to="/select/quiz" className={styles.link}>
               Quiz Mode
             </Link>
           </li>
