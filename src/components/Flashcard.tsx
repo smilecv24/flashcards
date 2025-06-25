@@ -17,6 +17,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
     <div
       className={`${styles.flashcard} ${isFlipped ? styles.flipped : ''}`}
       onClick={handleFlip}
+      data-testid="flashcard"
     >
       <div className={styles.cardInner}>
         <div className={styles.cardFront}>
