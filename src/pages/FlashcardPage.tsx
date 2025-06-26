@@ -3,9 +3,10 @@ import { useParams, Link } from 'react-router-dom';
 import { flashcards } from '../data/flashcards';
 import Flashcard from '../components/Flashcard';
 import styles from './HomePage.module.css';
+import { capitalize } from '../utils/string';
 
 const FlashcardPage = () => {
-  const { category } = useParams<{ category: string }>();
+  const { category, mode } = useParams<{ category: string; mode: 'study' | 'quiz' }>();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const cards = flashcards.filter((card) => card.category === category);
@@ -18,7 +19,7 @@ const FlashcardPage = () => {
     return (
       <div>
         <h2>No cards found for this category.</h2>
-        <Link to="/select/study" className={styles.link}>
+        <Link to={`/select/${mode}`} className={styles.link}>
           Select another category
         </Link>
       </div>
@@ -29,7 +30,7 @@ const FlashcardPage = () => {
     return (
       <div>
         <h2>Study session complete!</h2>
-        <Link to="/select/study" className={styles.link}>
+        <Link to={`/select/${mode}`} className={styles.link}>
           Choose another category
         </Link>
       </div>
@@ -41,15 +42,14 @@ const FlashcardPage = () => {
   return (
     <div>
       <h1>
-        Study: {category?.charAt(0).toUpperCase()}
-        {category?.slice(1)}
+        {capitalize(mode || '')}: {capitalize(category || '')}
       </h1>
-      <Flashcard card={currentCard} key={currentIndex} />
+      <Flashcard card={currentCard} key={currentCard.ukrainian} />
       <div style={{ marginTop: '2rem' }}>
         <button onClick={handleNextCard} className={styles.link} style={{ marginRight: '1rem' }}>
           Next Card
         </button>
-        <Link to="/select/study" className={styles.link}>
+        <Link to={`/select/${mode}`} className={styles.link}>
           Back to Categories
         </Link>
       </div>

@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { flashcards } from '../data/flashcards';
 import styles from './HomePage.module.css';
+import { capitalize } from '../utils/string';
 
 const CategorySelectionPage = () => {
   const { mode } = useParams<{ mode: 'study' | 'quiz' }>();
@@ -19,7 +20,7 @@ const CategorySelectionPage = () => {
               to={`${linkPath}/${category}`}
               className={styles.link}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {capitalize(category)}
             </Link>
           </li>
         ))}

@@ -1,12 +1,4 @@
-export interface Flashcard {
-  category: string;
-  ukrainian: string;
-  english: string;
-  quiz: {
-    type: 'multiple-choice';
-    options: string[];
-  };
-}
+import type { Flashcard } from '../types';
 
 export const flashcards: Flashcard[] = [
   // Animals

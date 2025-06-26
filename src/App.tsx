@@ -9,7 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/select/:mode" element={<CategorySelectionPage />} />
-      <Route path="/study/:category" element={<FlashcardPage />} />
+      <Route path="/:mode/:category" element={<FlashcardPage />} />
       <Route path="/stats" element={<StatsPage />} />
     </Routes>
   );
