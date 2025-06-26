@@ -145,3 +145,6 @@ dist-ssr
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Cursor
+.cursor/
